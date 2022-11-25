@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    private Vector3 screenPoint;
-    private Vector3 initialPos;
-    private Vector3 offset;
-    private Vector3 curPosition;
+
 
     [SerializeField] private Transform emptyTile = null;
     //Liste des tales
@@ -38,24 +35,5 @@ public class Game : MonoBehaviour
         }
     }
     #endregion
-    void Update()
-    {
-       
-    }
-    private void OnMouseDown()
-    {
-        screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-
-        initialPos = gameObject.transform.position;
-
-        offset = initialPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-    }
-    private void OnMouseDrag()
-    {
-        Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-
-        curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
-
-        transform.position = curPosition;
-    }
+ 
 }
